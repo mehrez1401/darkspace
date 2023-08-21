@@ -64,6 +64,10 @@ const signin= async(e)=> {
 
         const response = await UserService.signin(data)
         console.log("response ===>", response);
+        //save user data localstorage
+
+        localStorage.setItem('user_data', JSON.stringify(response.data.user)  )
+        localStorage.setItem('token', response.data.token)
         toast.success('User login ...');
         
         setEmail('')
